@@ -2,6 +2,8 @@ import json
 import urllib.request
 import urllib.parse
 from mcp.server.fastmcp import FastMCP
+from fastapi import FastAPI
+from mangum import Mangum
 from typing import Optional as optional
 
 mcp = FastMCP("Hotel Service", port=8001)
@@ -109,6 +111,7 @@ def book_hotel(
     }
     return _post_json(f"{BASE_URL}/book_hotel", payload)
 
+handler = Mangum(app)
 
 if __name__ == "__main__":
     mcp.run(transport="streamable-http")
