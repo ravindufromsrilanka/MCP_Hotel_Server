@@ -8,7 +8,10 @@ mcp = FastMCP("Hotel Service", port=8001)
 
 BASE_URL = "https://standing-fish-574.convex.site"
 
-
+@app.get("/")
+async def root():
+    return {"message": " Hotel MCP Data Server is running live!"}
+    
 def _get_json(url: str):
     with urllib.request.urlopen(url) as response:
         raw_data = response.read()
