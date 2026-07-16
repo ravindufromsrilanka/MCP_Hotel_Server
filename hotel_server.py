@@ -6,6 +6,7 @@ from fastapi import FastAPI
 from mangum import Mangum
 from typing import Optional as optional
 
+app = FastAPI()
 mcp = FastMCP("Hotel Service", port=8001)
 
 BASE_URL = "https://standing-fish-574.convex.site"
